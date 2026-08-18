@@ -1,0 +1,72 @@
+name: Generate PDFs from Markdown
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-extra
+
+      - name: Generate PDFs from Markdown
+        run: |
+          find . \
+            -type f \
+            -name "*.md" \
+            ! -name "README.md" \
+            -not -path "./.git/*" \
+            -not -path "./.github/*" \
+            -print0 |
+          while IFS= read -r -d '' file; do
+
+            pdf="${file%.md}.pdf"
+
+            echo "Generating PDF:"
+            echo "  Markdown: $file"
+            echo "  PDF:      $pdf"
+
+            pandoc "$file" \
+              --from=gfm \
+              --pdf-engine=xelatex \
+              --toc \
+              --number-sections \
+              -V geometry:margin=1in \
+              -V fontsize=11pt \
+              -o "$pdf"
+
+          done
+
+      - name: Commit generated PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add --all '*.pdf'
+
+          if git diff --cached --quiet; then
+            echo "No PDF changes."
+          else
+            git commit -m "docs: generate PDFs from Markdown"
+            git push
+          fi
