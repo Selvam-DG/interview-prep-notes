@@ -5,7 +5,7 @@ Concise, practical notes for technical interview preparation.
 
 ## Topics
 
-- [Python](./python/)
+- [Python](./Python/)
 - [SQL](./sql/)
 - [GraphDB / Neo4j](./graphdb-neo4j/)
 - [Computer Vision / OpenCV](./computer-vision-opencv/)
@@ -23,18 +23,18 @@ More topics will be added over time.
 
 Current Python notes:
 
-- [Python for Freshers](./python/01-python-freshers.md)
-- [Python for Experienced](./python/02-python-experienced.md)
-- [Python OOP](./python/03-python-oops.md)
-- [Pandas](./python/04-python-pandas.md)
-- [NumPy](./python/05-python-numpy.md)
-- [Python Libraries](./python/06-python-libraries.md)
-- [Programming Examples](./python/07-python-programming-examples.md)
-- [Advanced Python](./python/08-python-advanced.md)
-- [Coding Interview Questions](./python/09-python-coding-interview.md)
-- [Python Scripting](./python/10-python-scripting.md)
-- [Tricky Python Questions](./python/11-python-tricky.md)
-- [Python MCQs](./python/12-python-mcq.md)
+- [Python for Freshers](./Python/01-python-freshers.md)
+- [Python for Experienced](./Python/02-python-experienced.md)
+- [Python OOP](./Python/03-python-oops.md)
+- [Pandas](./Python/04-python-pandas.md)
+- [NumPy](./Python/05-python-numpy.md)
+- [Python Libraries](./Python/06-python-libraries.md)
+- [Programming Examples](./Python/07-python-programming-examples.md)
+- [Advanced Python](./Python/08-python-advanced.md)
+- [Coding Interview Questions](./Python/09-python-coding-interview.md)
+- [Python Scripting](./Python/10-python-scripting.md)
+- [Tricky Python Questions](./Python/11-python-tricky.md)
+- [Python MCQs](./Python/12-python-mcq.md)
 
 ---
 
